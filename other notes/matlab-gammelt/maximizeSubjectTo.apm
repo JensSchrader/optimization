@@ -1,0 +1,14 @@
+Model
+  Variables
+    x1 = 1, >=0
+    x2 = 5, >=0
+  End Variables
+
+  Equations
+    x1 <= 30
+    x2 <= 20
+    x1 + 2*x2 <= 54
+
+    maximize  2*x1 + 3*x2
+  End Equations
+End Model
