@@ -1,26 +1,3 @@
----
-title:  'ODA Exam 2018'
-author:
-- Alex Justesen Karlsen, 201404623
-date: \today
-geometry: margin=1in
-fontsize: 12pt
-mainfont: Roboto
-header-includes: |
-    \usepackage{fancyhdr}
-    \pagestyle{fancy}
-    \fancyhf{}
-    \rhead{ODA Exam 2018}
-    \chead{\today}
-    \lhead{Alex Justesen Karlsen}
-    \rfoot{\thepage}
-include-before: '`\newpage{}`{=latex}'
-documentclass: article
-toc: true
-toc-depth: 1
-...
-
-\newpage{}
 # Exercise 1
 
 Consider the following optimization problem:
@@ -29,7 +6,7 @@ $$
 \begin{aligned}
 Maximize: f(x)=x_1 + x_2 \\
 Subject\: to: x_1+2x_2 \leq 12 \:(i)\\
-x_1+5x_2\:(ii)\\
+x_1+5x_2\leq25\:(ii)\\
 x_1 \leq 6\:(iii) \\
 and\: x_1 \leq 0;\: x_2 \leq 0
 \end{aligned}
@@ -43,29 +20,101 @@ b) Write out the simplex tableaux for the problem and show the first step needed
 
 \newpage{}
 
-*Simplex is a method for linear programming problem. It must be a **maximization** problem on standard form.*
-
-- *All variables must be non-negative $\geq 0$.*
-- *Constraints should be non-negative $(\leq)$.*
-
-The objective function should have all the variables on the left-hand-side and is equal to zero e.g. $Z = 3x + 4y$ becomes $– 3x – 4y + Z =
+> Simplex is a method for linear programming problem. It must be a **maximization** problem on standard form.
+>
+>- *All variables must be non-negative $\geq 0$.*
+>- *Constraints should be non-negative $(\leq)$.*
+>
+>The objective function should have all the variables on the left-hand-side and is equal to zero e.g. $Z = 3x + 4y$ becomes $– 3x – 4y + Z =
 0$.
+>
+>Simplex introduces slack variables to turn inequalities into equations e.g. $2x_1+x_2 \leq 8$ becomes $2x_1+x_2 + x_3=8$.
+> **NB: Duality Theorem**
+Primal Problem $P$
+$$maximize\: f(x)=c^Tx\\Ax\leq b\\x\geq0$$
+Dual Problem $P'$
+$$minimize\: g(y)=b^Ty\\A^Ty\leq c\\y\geq0$$
 
-Simplex introduces slack variables to turn inequalities into equations e.g. $2x_1+x_2 \leq 8$ becomes $2xs_+x_2 + x_3=8$. 
-
-A minimization problem can be rewritten as:...
+<!-- A minimization problem can be rewritten as:
+$$max\: f(x) = min\:-f(x)$$ -->
 
 Once the above is satisfied the initial problem can be formulated on simplex tableau form:
 
-|$x_1$|$x_2$|$x_3$|$x_4$|$x_5$|  M  |
-|-----|-----|-----|-----|-----|-----|
-|1|2|1|0|0|12|
-|1|5|0|1|0|25|
-|1|0|0|0|1|0|
-|-1|-1|0|0|0|1|
+|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
+|-----|-----|-----|-----|-----|-----|-----|
+|1|2|1|0|0|0|12|
+|1|5|0|1|0|0|25|
+|1|0|0|0|1|0|0|
+|-1|-1|0|0|0|1|0|
 Table 1: Initial simplex tableau
 
-Selecting pivot element;
+> NB. just to show how the dual problem of the initial solution should look like. $\downarrow$
+
+|$y_1$|$y_2$|$y_3$|$\hat{y}_4$|$\hat{y}_5$|  M  |     |
+|-----|-----|-----|-----|-----|-----|-----|
+|1|2|1|0|0|0|1|
+|2|5|0|1|0|0|1|
+|1|0|0|0|1|0|0|
+|-25|-12|0|0|0|1|0|
+Table 1.1: Dual problem simplex tableau
+
+Selecting pivot element $A_{ij}$;
+
+> The pivot column $j$ should be the largest negative i.e. smallest value of the bottom row $c$, which is the coefficients.
+The pivot row should be the smallest value. The pivot row $i$ is determined by $\min(\frac{y_n}{c_n})$.  
+
+Pivot column $j$;
+
+
+
+$j=\min(c)=\min(-1,-1)$, both $x_1 = x_2 = -1$, $j=2$ is selected.
+
+Pivot row $i$;
+
+$i=\min(\frac{12}{1}, \frac{25}{1}, \frac{6}{1})$
+
+$i=2$ is selected as $\frac{6}{1}=5$ is the smallest entry.
+
+The pivot element is $A_{13}$
+
+> Next step: All other entries in the column should be 0
+
+Row operations;
+
+$R_3-R_2$,
+$R_3-R_1$,
+$R_3+R_4$
+
+|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
+|-----|-----|-----|-----|-----|-----|-----|
+|0|2|1|0|-1|0|6|
+|0|5|0|1|-1|0|19|
+|1|0|0|0|1|0|6|
+|0|-1|0|0|0|1|6|
+Table 2: Simplex after first pivot
+
+If we should continue, then;
+
+$A_{21}$ would be the next pivot, and the following row operations;
+
+$2\frac{1}{2}R_1-R_2$,
+$\frac{1}{2}R_1+R_4$,
+$R_1\cdot\frac{1}{2}$
+
+
+|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
+|-----|-----|-----|-----|-----|-----|-----|
+|0|1|1/2|0|-1/2|0|3|
+|0|0|-5/2|1|3/2|0|4|
+|1|0|0|0|1|0|6|
+|0|0|1/2|0|1/2|1|9|
+Table 3: Simplex solution
+
+The optimal solution is then;
+
+$$f(6,3)=9$$
+
+![Geometric Solution](ex1c.png)
 
 Now we change inequality ii) to the following inequality: $x_1 + 5x_2\leq 30$. We keep inequality i) and iii). 
 
@@ -74,15 +123,37 @@ c) Does this change the maximum for $f$ on new the feasible set? Argue for your 
 It would not matter. If we look at the (a) the equation does not affect the solution, as we increase the amount, however if we did decrease it enough it would start to have impact on the feasible set, hence the solution. 
 
 # Exercise 2
-Consider the function: $f: R^3 \rightarrow R$, where $f(x)=x-x-x$.
+
+Consider the function: $f: R^3 \rightarrow R$, where $f(x)=x_1-x_2-x_3$.
 
 a) Find the gradient of $f$ and the directional derivate in the direction $d=(2,3,4)$
 (argue for your calculations).
+
+The gradient of $f$ is $\nabla f$, which is a vector of the partial derivates of the variables.
+
+$$\nabla f(x_1,x_2,x_3)=
+    \begin{bmatrix}
+    \frac{\partial f}{\partial x_1} \\
+    \frac{\partial f}{\partial x_2} \\
+    \frac{\partial f}{\partial x_3}
+    \end{bmatrix}=
+    \begin{bmatrix}
+    1 \\
+    1 \\
+    1
+    \end{bmatrix}
+$$
+
+The directional derivate in the direction d, is the dot product of $d \cdot \nabla f$.
+
+$$d \cdot \nabla f = 2\cdot 1+3\cdot 1+4\cdot 1 = 9$$
+
 Now let $f$ be subject to the constraint, $h(x_1,x_2,x_3)=0$, where $h(x)=\frac{x_1^2}{4}+\frac{x_2^2}{9}+\frac{x_3^2}{3}-1$.
 
 b) Find the maximum and minimum for $f$ over the feasible set $F=\{x_1,x_2,x_3|h(x_1,x_2,x_3)=0\}$ (argue for your calculations).
 
 # Exercise 3
+
 Answer the following with ONE sentence per question.
 
 a) What is the main difference between the Newton and Quasi-Newton method?
@@ -113,7 +184,8 @@ Add these methods to the tables below according to their properties (some method
 |Newton, Quasi-Newton, Conjugate Gradient|**(Particle Swarm)**, **(Genetic Algorithms)**|Particle Swarm, Simulated Annealing, Genetic Algorithms|Particle Swarm,**(Genetic Algorithms)**|
 
 e) We are helping a robot turtle find some treasure. A "turtle path" always begins at the START square and consists of five steps. At each step the turtle moves one square, either: up, down, left, or right. Below are some examples of turtle paths.
-![turtle](turtle.png)
+
+![Three example turtle paths](turtle.png)
 
 We want to use a genetic algorithm to find instructions so the turtle ends up at the GOAL (where the treasure is) once it stops moving. Each "turtle path" is a candidate solution.
 
