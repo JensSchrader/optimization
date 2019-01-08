@@ -125,6 +125,27 @@ Now let $f$ be subject to the constraint, $h(x_1,x_2)=0$ where $h(x_1,x_2)=x_1^2
 b) Find the maximum and minimum for $f$ in the feasible set $F=\{(x_1,x_2)|h(x_1,x_2)=0\}$
 Argue for your calculations.
 
+To find both minimum and maximum of f subject to the constraint h I use the lagrange multiplier
+method.
+
+$F = \{x,\lambda\} = f(x) - \lambda (h(x))$
+
+Putting in the above expression we get
+
+$$F = \{x,\lambda\} = x_1\cdot x_2 - x_1 - \lambda (x_1^2+x_2^2-4)$$
+
+Removing the parenthesis following the lambda we get
+
+$$F = \{x,\lambda\} = x_1\cdot x_2 - x_1 - \lambda\cdot x_1^2 - \lambda\cdot x_2^2+ \lambda\cdot 4)$$
+
+We thereafter take the partial derivative of $x_1$, $x_2$ and $\lambda$
+
+$\frac {\partial f}{\partial x_1} = x_2 - 1 - \lambda \cdot 2x_1$
+
+$\frac {\partial f}{\partial x_2} = x_1 - 1 - \lambda \cdot 2x_2$
+
+$\frac {\partial f}{\partial \lambda} = x_1^2 - x_2^2+4$
+
 c) Argue that the maximum of $f$ on the set $D=\{(x_1,x_2)|h(x_1,x_2)\leq0\}$ is the maximum found in b) (Note: $D$ includes both the circle AND the interior of the circle).
 
 # Exercise 3

@@ -36,7 +36,7 @@ $$\nabla f(x_1,x_2)=
 
 $SOSC$:
 
-Considering the definiteness of the Hessian matrix reveals optimum as max, min or saddle point.
+Considering the definiteness of the Hessian matrix reveals optimum as max, min or saddle point, using an eigen value analysis.
 
 The hessian matrix is a matrix of the second order derivatives of $f$.
 
