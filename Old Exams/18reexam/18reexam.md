@@ -2,19 +2,123 @@
 
 Consider the following optimization problem:
 
-$$Maximize\:f(x)=6x_1+5x_2\\Subject\:to\:x_1+4x_4\leq16\\6x_1+4x_2\leq30\\2x_1-5x_2\leq6\\and\:x_1\geq0,x_2\geq0$$
+$$
+\begin{aligned}
+Maximize\:f(x)=6x_1+5x_2\\
+Subject\:to\:x_1+4x_4\leq16\\
+6x_1+4x_2\leq30\\2x_1-5x_2\leq6\\
+and\:x_1\geq0,x_2\geq 0
+\end{aligned}
+$$
 
 a) Sketch the feasible set in 2 dimensions.
 
+![Feasible Set](ex1a.png)
+
 b) Write out the simplex tableaux for the problem and show the first step needed to bring in a new variable into the solution (e.g. argue what column and row to choose, and what elementary operations are needed for the first reductions). Find the maximum for $f$ on the feasible set (you may use MatLab).
 
+[Online Simplex Solver](http://simplex.tode.cz/en/#steps)
+
+> Simplex is a method for linear programming problems. It must be a **maximization** problem on standard form.
+>
+>- *All variables must be non-negative $\geq 0$.*
+>- *Constraints should be non-negative $(\leq)$.*
+>
+>The objective function should have all the variables on the left-hand-side and is equal to zero e.g. $Z = 3x + 4y$ becomes $– 3x – 4y + Z =
+0$.
+>
+>Simplex introduces slack variables to turn inequalities into equations e.g. $2x_1+x_2 \leq 8$ becomes $2x_1+x_2 + x_3=8$.
+> **NB: Duality Theorem**
+Primal Problem $P$
+$$maximize\: f(x)=c^Tx\\Ax\leq b\\x\geq0$$
+Dual Problem $P'$
+$$minimize\: g(y)=b^Ty\\A^Ty\leq c\\y\geq0$$
+
+<!-- A minimization problem can be rewritten as:
+$$max\: f(x) = min\:-f(x)$$ -->
+
+Once the above is satisfied the initial problem can be formulated on simplex tableau form:
+
+|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
+|-----|-----|-----|-----|-----|-----|-----|
+|1|4|1|0|0|0|16|
+|6|4|0|1|0|0|30|
+|2|-5|0|0|1|0|6|
+|-6|-5|0|0|0|1|0|
+Table 1: Initial simplex tableau
+
+> NB. eaxmple of dual problem see 18Exam.pdf
+
+Selecting pivot element $A_{ij}$;
+
+> The pivot column $j$ should be the largest negative i.e. smallest value of the bottom row $c$, which is the coefficients.
+The pivot row should be the smallest value. The pivot row $i$ is determined by $\min(\frac{y_n}{c_n})$.  
+
+Pivot column $j$;
+
+$j=\min(c)=\min(-6,-5) \rightarrow j=1$ is selected.
+
+Pivot row $i$;
+
+$i=\min(\frac{16}{1}, \frac{30}{6}, \frac{6}{2})$
+
+$i=3$ is selected as $\frac{6}{2}=3$ is the smallest entry.
+
+The pivot element is $A_{13}$
+
+> Next step: All other entries in the column should be 0
+
+Row operations;
+
+$3R_3-R_2$,
+$\frac{1}{2}R_3-R_1$,
+$3R_3+R_4$,
+$\frac{1}{2}R_3$
+
+|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $y$   |
+|-----|-----|-----|-----|-----|-----|
+|0|13/2|1|0|-1/2|13|
+|0|19|0|1|-3|12|
+|1|-5/2|0|0|1/2|3|
+|0|-20|0|0|3|18|
+Table 2: Simplex after first pivot
+
+> 18exam.pdf has a full simplex solution
+
+$$f(\frac{14}{5},\frac{33}{10})=\frac{333}{10}\approx 33.3$$
+
+![Geometric Solution](ex1b.png)
+
 c) Find the maximum point $(x_1,x_2)$ of $f$, when $x_1, x_2$ are both integers. Show your solution in the sketch from question a). Argue for your answer.
+
+*IDK how to solve this, however a guess could be $(3,3)$. $(3,3)$ does satisfy the inequality and must be the solution I just don't know how to show it mathematically.*
+
+![Geometric Solution](ex1c.png)
 
 # Exercise 2
 
 Consider the function: $f:R^2 \rightarrow R$, where $f(x)=x_1\cdot x_2 - x_1$.
 
 a) Find the gradient of $f$ and the directional derivate in the direction $d(1,1)$ in the point $(x_1,x_2)=(1,2)$. Argue for your calculations.
+
+The gradient of $f$ is $\nabla f$, which is a vector of the partial derivates of the variables.
+
+[Symbolab](https://www.symbolab.com/solver/partial-derivative-calculator) can give the partial derivatives.
+
+$$\nabla f(x_1,x_2)=
+    \begin{bmatrix}
+    \frac{\partial f}{\partial x_1} \\
+    \frac{\partial f}{\partial x_2}
+    \end{bmatrix}=
+    \begin{bmatrix}
+    x_2-1 \\
+    x_1 
+    \end{bmatrix}
+$$
+
+The directional derivate in the direction d, is the dot product of $d \cdot \nabla f$.
+
+$$d \cdot \nabla f(2,1) = 1 \cdot (2-1)+ 1\cdot 1 = 1$$
 
 Now let $f$ be subject to the constraint, $h(x_1,x_2)=0$ where $h(x_1,x_2)=x_1^2+x_2^2-4$.
 
@@ -28,7 +132,7 @@ c) Argue that the maximum of $f$ on the set $D=\{(x_1,x_2)|h(x_1,x_2)\leq0\}$ is
 a) In the context of optimization, is simulated annealing guaranteed to find the global optimum
 (Yes/No)?
 
-*No*
+*No.*
 
 > Simulated Annealing have countermeasures for getting stuck in local optimum, by accepting a worse candidate solution with some probability. Improving candidate solutions are always accepted. Simulated Annealing is inspired by metallurgy, where the blacksmith heath the metal material and lets it slowly cool off. It makes the metal easier to work with. Simulated annealing how the term of hot and cold. When it's hot, the algorithm is more likely to take a worse candidate solution, as it get colder the probability decrease i.e. it gets less bendy.
 
@@ -84,6 +188,7 @@ If $g(t) < h(x_iy_i)$
 Then update the best known global position $g(t)$ (social component).
 >3. Update the particles individual velocity and position according to the update formulas in (i).
 
+# Exercise 4
 
 ## Question 1
 

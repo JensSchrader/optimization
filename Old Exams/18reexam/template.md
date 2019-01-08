@@ -1,5 +1,5 @@
 ---
-title:  'ODA Exam 2018'
+title:  'ODA Reexam June 2018'
 author:
 - Alex Justesen Karlsen, 201404623
 date: \today
@@ -8,7 +8,7 @@ titlepage: true
 include-before: '`\newpage{}`{=latex}'
 documentclass: article
 toc: true
-toc-depth: 1
+toc-depth: 2
 ...
 
 \newpage{}

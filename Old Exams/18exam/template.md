@@ -1,5 +1,5 @@
 ---
-title:  'ODA Exam 2018'
+title:  'ODA Exam January 2018'
 author:
 - Alex Justesen Karlsen, 201404623
 date: \today
