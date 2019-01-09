@@ -25,7 +25,7 @@ b) Write out the simplex tableaux for the problem and show the first step needed
 >- *All variables must be non-negative $\geq 0$.*
 >- *Constraints should be non-negative $(\leq)$.*
 >
->The objective function should have all the variables on the left-hand-side and is equal to zero e.g. $Z = 3x + 4y$ becomes $– 3x – 4y + Z =
+>The objective function should have all the variables on the left-hand-side and is equal to zero e.g. $Z = 3x + 4y$ becomes $-3x-4y + Z =
 0$.
 >
 >Simplex introduces slack variables to turn inequalities into equations e.g. $2x_1+x_2 \leq 8$ becomes $2x_1+x_2 + x_3=8$.
@@ -40,22 +40,22 @@ $$max\: f(x) = min\:-f(x)$$ -->
 
 Once the above is satisfied the initial problem can be formulated on simplex tableau form:
 
-|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
+|$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $y$   |
 |-----|-----|-----|-----|-----|-----|-----|
-|1|2|1|0|0|0|12|
-|1|5|0|1|0|0|25|
-|1|0|0|0|1|0|0|
-|-1|-1|0|0|0|1|0|
+|1|2|1|0|0|12|
+|1|5|0|1|0|25|
+|1|0|0|0|1|6|
+|-1|-1|0|0|1|0|
 Table 1: Initial simplex tableau
 
 > NB. just to show how the dual problem of the initial solution should look like. $\downarrow$
 
-|$y_1$|$y_2$|$y_3$|$\hat{y}_4$|$\hat{y}_5$|  M  |     |
+|$y_1$|$y_2$|$y_3$|$\hat{y}_4$|$\hat{y}_5$|  $x$   |
 |-----|-----|-----|-----|-----|-----|-----|
-|1|2|1|0|0|0|1|
-|2|5|0|1|0|0|1|
-|1|0|0|0|1|0|0|
-|-25|-12|0|0|0|1|0|
+|1|1|1|0|0|1|
+|2|5|0|1|0|1|
+|1|0|0|0|1|0|
+|-25|-12|-6|0|1|0|
 Table 1.1: Dual problem simplex tableau
 
 Selecting pivot element $A_{ij}$;
@@ -65,15 +65,15 @@ The pivot row should be the smallest value. The pivot row $i$ is determined by $
 
 Pivot column $j$;
 
+$$j=\min(-1,-1)$$
 
-
-$j=\min(c)=\min(-1,-1)$, both $x_1 = x_2 = -1$, $j=2$ is selected.
+both $x_1 = x_2 = -1$, $j=1$ is selected.
 
 Pivot row $i$;
 
-$i=\min(\frac{12}{1}, \frac{25}{1}, \frac{6}{1})$
+$$i=\min(\frac{12}{1}, \frac{25}{1}, \frac{6}{1})$$
 
-$i=2$ is selected as $\frac{6}{1}=5$ is the smallest entry.
+$i=1$ is selected as $\frac{6}{1}=6$ is the smallest entry.
 
 The pivot element is $A_{13}$
 
@@ -81,9 +81,11 @@ The pivot element is $A_{13}$
 
 Row operations;
 
-$R_3-R_2$,
-$R_3-R_1$,
-$R_3+R_4$
+$$R_2=R_2-R_3$$
+
+$$R_1=R_1-R_3$$
+
+$$R4=R_4+R_3$$
 
 |$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
 |-----|-----|-----|-----|-----|-----|-----|
@@ -97,10 +99,11 @@ If we should continue, then;
 
 $A_{21}$ would be the next pivot, and the following row operations;
 
-$2\frac{1}{2}R_1-R_2$,
-$\frac{1}{2}R_1+R_4$,
-$R_1\cdot\frac{1}{2}$
+$$R_2=R_2-\frac{3}{2}R_1$$
 
+$$R_4=R_4+\frac{1}{2}R_1$$
+
+$$R_1=\frac{1}{2}R_1$$
 
 |$x_1$|$x_2$|$\hat{x}_3$|$\hat{x}_4$|$\hat{x}_5$|  $M$  |  $y$   |
 |-----|-----|-----|-----|-----|-----|-----|
@@ -154,7 +157,7 @@ b) Find the maximum and minimum for $f$ over the feasible set $F=\{x_1,x_2,x_3|h
 
 To find both minimum and maximum of $f$ subject to the constraint $h$ I use the lagrange multiplier method. 
 
-> $$F(x)=f(x)-\lambda(h(x))$$
+$$F(x,\lambda)=f(x)-\lambda(h(x))$$
 
 I plug the given functions into the formula.
 
@@ -235,7 +238,9 @@ Add these methods to the tables below according to their properties (some method
 
 |Deterministic|Stochastic|Global Search|Population of candidate solutions per iteration |
 |--|--|--|--|
-|Newton, Quasi-Newton, Conjugate Gradient|Particle Swarm, Genetic Algorithms, Simulated Annealing|Particle Swarm, Simulated Annealing, Genetic Algorithms|Particle Swarm,Genetic Algorithms|
+|Newton | Particle Swarm | Particle Swarm | Particle Swarm |  
+|Quasi-Newton | Genetic Algorithms | Genetic Algorithms | Genetic Algorithms |
+Conjugate Gradient| Simulated Annealing | Simulated Annealing |
 
 e) We are helping a robot turtle find some treasure. A "turtle path" always begins at the START square and consists of five steps. At each step the turtle moves one square, either: up, down, left, or right. Below are some examples of turtle paths.
 

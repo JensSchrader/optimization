@@ -1,6 +1,8 @@
-# Unconstrained Optimization
+## Unconstrained Optimization
 
-## One-dimension
+### Mathematical Preliminaries
+
+#### One-dimension
 
 $$f:R^1 \rightarrow R^1$$
 
@@ -18,7 +20,7 @@ For a minimum (not entirely sure)
 
 $$f''(x)<0$$
 
-## N-dimensions
+#### N-dimensions
 
 $$f:R^n \rightarrow R^1$$
 
@@ -45,3 +47,27 @@ $$D^2f(x)=
 \frac{\partial^2 f}{\partial x_1x_2} \\
 \frac{\partial^2 f}{\partial x_2x_1}
 \end{bmatrix}$$
+
+### 1D Line Search Methods
+
+#### Golden Section Search
+
+#### Fibonacci Search
+
+#### Newtons Method
+
+### Gradient Methods
+
+#### Steepest Descent
+
+#### Conjugate Descent
+
+### Newton's Method Variants
+
+#### N-Dimensional Newton
+
+#### Levenberg-Macquard's modification
+
+#### Newton's for non-linear least-square
+
+#### Quasi-Newton

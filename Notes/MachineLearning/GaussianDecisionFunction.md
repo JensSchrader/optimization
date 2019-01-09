@@ -1,10 +1,10 @@
-# Gaussian Decision Functions
+### Gaussian Decision Functions
 
 We make assumptions about the distribution of samples data is Gaussian. In reality it can take any distribution, however many has proven to be gaussian. The central limit theorem tells, that aggregating a large number from a lot of small independent disturbance will turn out to be gaussian.
 
 When sampling a variable a lot of disturbance is collected as well. The expected value of a continuous variable can be determined as;
 
-$$\varepsilon[f(x)]=\int^{\infin}_{-\infin}f(x)p(x)dx$$
+$$\varepsilon[f(x)]=\int^{\infty}_{-\infty}f(x)p(x)dx$$
 The normal distribution $p(x)$ is given by:
 
 $$p(x)=\frac{1}{\sqrt{2\pi} \cdot \sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$
@@ -17,15 +17,15 @@ where $P(x)$ is the Probability Mass Function (PMF) of $x$.
 
 $$p(x)=\frac{1}{\sqrt{2\pi} \cdot \sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$
 
-$\mu$ is the mean and $\sigma$ is the standard deivation.
+$\mu$ is the mean and $\sigma$ is the standard deviation.
 
-$$\mu=\varepsilon[x]=\int^{\infin}_{-\infin}x\cdot p(x)dx$$
+$$\mu=\varepsilon[x]=\int^{\infty}_{-\infty}x\cdot p(x)dx$$
 
-$$\sigma^2=\varepsilon[(x-\mu)^2]=\int^{\infin}_{-\infin}(x-\mu)^2\cdot p(x)dx$$
+$$\sigma^2=\varepsilon[(x-\mu)^2]=\int^{\infty}_{-\infty}(x-\mu)^2\cdot p(x)dx$$
 
 The following model visualizes the normal distribution. 95\% are within 95\% of the interval of $2\mu + \sigma$ (i.e. confidence interval).
 
-![Normal Distribution](normaldistribution.png)
+![Normal Distribution](./figures/normaldistribution.png)
 
 Normal distribution are also denoted $\mathcal{N}(\mu, \sigma^2)$.
 
@@ -87,7 +87,7 @@ $$Y=W^TX$$
 
 The transformations has much resemblance with PCA. It is an linear transformation using eigen vectors. PCA is an orthogonal transformation, thus rotating the data. PCA uses $W=U\Lambda$. 
 
-![Whitetning](whitening.png)
+![Whitetning](./figures/whitening.png)
 
 PCA can be used to reduce the dimensionality. Whitening is used to remove correlation in data by shrinking large data direction and expanding small directions. Large data directions tend to reflect low spatial frequencies, thus whitening can increase spatial precision. Whitening separates data by expanding small dimension assuming all the dimensions are of equal importance.
 
@@ -129,7 +129,7 @@ Suppose the training set $D$ contains $n$ samples, and $\theta$ is the sample we
 $$p(D|\theta)=\prod_{k=1}^n p(x_k|\theta)$$
 The estimate $\hat{\theta}$ is by definition the value, that maximizes $p(D|\theta)$. 
 
-![likelihood](loglikelihood.png)
+![likelihood](./figures/loglikelihood.png)
 
 Figure shows all the possible distributions of the sampled data, an optimal solution and the same optimal solution option by the log-likelihood.
 
@@ -150,5 +150,6 @@ $$\hat{\sigma}^2=\frac{1}{n}\sum_{k=1}^n (x_k-\mu)^2$$
 Typically we do not know these variables and must estimate them. 
 
 ## Baysian Estimation
-We do not seek a true value for $\theta$, but a random variable instead. Training allow us to convert a distribution into a posterior porbability density.
+
+We do not seek a true value for $\theta$, but a random variable instead. Training allow us to convert a distribution into a posterior probability density.
 
