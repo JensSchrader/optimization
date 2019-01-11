@@ -305,6 +305,12 @@ My idea for both transformations and decision functions are more or less the sam
 
 a) Draw a neural network solving a 5‐class classification problem using training data $x \in R^5, i\:\:1, ... , N$. The neural network is formed by 2 hidden layers.
 
+*Number neurons in hidden layers is selected according to Jeff Heaton's rule of thumb stated as;*
+
+> The number of hidden neurons should be 2/3 the size of the input layer, plus the size of the output layer.
+
+$$5\cdot\frac{2}{3}+5\approx8$$
+
 ![Neural Network](nn.png)
 
 b) Express the output of the network $o$ with respect to the input vector $x$ and describe the classification rule based on which $x$ will be assigned to one of the 5 classes.
