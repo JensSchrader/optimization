@@ -125,28 +125,50 @@ Now let $f$ be subject to the constraint, $h(x_1,x_2)=0$ where $h(x_1,x_2)=x_1^2
 b) Find the maximum and minimum for $f$ in the feasible set $F=\{(x_1,x_2)|h(x_1,x_2)=0\}$
 Argue for your calculations.
 
-To find both minimum and maximum of f subject to the constraint h I use the lagrange multiplier
-method.
+*To find both minimum and maximum of f subject to the constraint h I use the lagrange multiplier
+method.*
 
-$F = \{x,\lambda\} = f(x) - \lambda (h(x))$
+$$F = \{x,\lambda\} = f(x) + \lambda (h(x))$$
 
-Putting in the above expression we get
+*Putting in the above expression we get;*
 
-$$F = \{x,\lambda\} = x_1\cdot x_2 - x_1 - \lambda (x_1^2+x_2^2-4)$$
+$$F = \{x,\lambda\} = x_1\cdot x_2 - x_1 + \lambda (x_1^2+x_2^2-4)$$
 
-Removing the parenthesis following the lambda we get
+*Removing the parenthesis following the lambda we get;*
 
-$$F = \{x,\lambda\} = x_1\cdot x_2 - x_1 - \lambda\cdot x_1^2 - \lambda\cdot x_2^2+ \lambda\cdot 4)$$
+$$F = \{x,\lambda\} = x_1\cdot x_2 - x_1 + \lambda\cdot x_1^2 + \lambda\cdot x_2^2 - \lambda\cdot 4)$$
 
 We thereafter take the partial derivative of $x_1$, $x_2$ and $\lambda$
 
-$\frac {\partial f}{\partial x_1} = x_2 - 1 - \lambda \cdot 2x_1$
+$$\frac {\partial f}{\partial x_1} = x_2 - 1 + \lambda \cdot 2x_1$$
 
-$\frac {\partial f}{\partial x_2} = x_1 - 1 - \lambda \cdot 2x_2$
+$$\frac {\partial f}{\partial x_2} = x_1 + \lambda \cdot 2x_2$$
 
-$\frac {\partial f}{\partial \lambda} = x_1^2 - x_2^2+4$
+$$\frac {\partial f}{\partial \lambda} = x_1^2 + x_2^2-4$$
+
+*Solving using Wolfram Alpha Linear Equation Solver yields 4 solutions;*
+
+$$x_1=-1.076, x_2=1.686, \lambda =0.319$$
+
+$$x_1=1.076, x_2=1.686, \lambda =-0.319$$
+
+$$x_1=1.610, x_2=-1.186, \lambda =-0.679$$
+
+$$x_1=-1.610, x_2=-1.186, \lambda =0.679$$
+
+$$f(-1.076,1.686)=(-1.076) \cdot (1.686) -(-1.076) = - 0.738$$
+
+$$f(-1.076,1.686)=(1.076) \cdot (1.686) -(1.076) = 0.738$$
+
+$$f(1.610,-1.186)=(1.610) \cdot (-1.186) -(1.610) = -3.519$$
+
+$$f(-1.610,-1.186)=(-1.610) \cdot (-1.186) -(1.610) = 3.519$$
+
+*We conclude that if there are minimizer, then they are located at $(-1.076,1.686)$ and $(1.076,1.686)$ and if there are maximizers, then they are located at $(1.610,-1.186)$ and $(-1.610,-1.186)$.*
 
 c) Argue that the maximum of $f$ on the set $D=\{(x_1,x_2)|h(x_1,x_2)\leq0\}$ is the maximum found in b) (Note: $D$ includes both the circle AND the interior of the circle).
+
+*The circle and the interior of the circle forms the feasible set, thus the maximum of $f$ on $D$ will be the maximum of the circle, i.e. there are no points in the interior of the circle greater than points on the circle.*
 
 # Exercise 3
 
