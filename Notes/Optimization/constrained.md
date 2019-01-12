@@ -30,3 +30,4 @@ Solve the system of equations
 $$DF(x,\lambda)=\nabla f(x)-\nabla\lambda(h(x))=0$$
 
 If the solution has optimizers, these will be given as the solution to the system of equations.
+
