@@ -200,7 +200,7 @@ We want to use a particle swarm to find the warmest location in the room, i.e. t
 
 i) Develop a representation of a candidate solution as a “particle”, including a fitness function. The particle swarm update formula is:
 
-The particle swarm has to update formulas one for particles velocity;
+The particle swarm has two update formulas one for particles velocity;
 
 $$v_i(t+1)=wv_i(t)+c_1r_1[\hat{x}_i(t)-x_i(t)]+c_2r_2[g(t)-x_i(t)]$$
 

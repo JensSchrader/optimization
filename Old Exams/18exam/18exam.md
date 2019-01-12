@@ -215,7 +215,7 @@ Answer the following with ONE sentence per question.
 
 a) What is the main difference between the Newton and Quasi-Newton method?
 
-*Newton's method computes the first and second order derivative i.e. Jacobian and Hessian matrices. 
+*Newton's method computes the first and second order derivative i.e. Jacobian and Hessian matrices.
 Quasi Newton's approximates these matrices, in cases of unavailability or if they are too expensive to compute.*
 
 b) What is discrete optimization? Name one example of a well-known discrete optimization problem.
@@ -295,8 +295,6 @@ Given initial population generation t0
 Repeat until stop criterion is met
 ```
 
-
-
 # Exercise 4
 
 A classification problem is formed by two classes. We are given a set of 2-dimensional data $X = [x_1,x_2, \dots x_7]$: 
@@ -314,6 +312,10 @@ Using the above (training) vectors and the corresponding class labels, classify 
 
 $$x_8 = \begin{bmatrix}1 \\ 2 \end{bmatrix},\: x_9 =\begin{bmatrix}3 \\ 0 \end{bmatrix}, x_{10} =\begin{bmatrix}2 \\ 1 \end{bmatrix}$$
 using the following classifiers:
+
+All classifiers are implemented using Scikit-Learn[^fn1]
+
+[^fn1]: Scikit Learn, url:  [https://scikit-learn.org/stable/](https://scikit-learn.org/stable/)
 
 First define data:
 

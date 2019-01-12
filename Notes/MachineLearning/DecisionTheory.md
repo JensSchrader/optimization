@@ -5,6 +5,7 @@ Decision Theory is about *Minimize expected loss* of a decision e.g. classificat
 An Email Spam filter is a good example. We can classify mails as ham or spam. The loss of getting a mail, that was actually spam is not very costlt, however filtering an important mail can be potentially harmful.
 
 A loss matrix could look like:
+
 ![Spam Filter loss function](./figures/spamham.png)
 
 The are different kind of loss functions e.g. 
