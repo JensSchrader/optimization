@@ -11,6 +11,20 @@ Particle swam optimization is one such method. It spreads out a swarm of particl
 
 Simulated Annealing have countermeasures for getting stuck in local optimum, by accepting a worse candidate solution with some probability. Improving candidate solutions are always accepted. Simulated Annealing is inspired by metallurgy, where the blacksmith heath the metal material and lets it slowly cool off. It makes the metal easier to work with. Simulated annealing uses the term of hot and cold. When it's hot, the algorithm is more likely to take a worse candidate solution, as it get colder the probability decrease i.e. it gets less bendy.
 
+```pseudo
+Let s = s0
+For k = 0 through kmax (exclusive):
+T = temperature(k / kmax)
+Pick a random neighbour, snew = neighbour(s)
+If P(E(s), E(snew), T) >= random(0, 1):
+s = snew
+Output: the final state s
+```
+
+$$e^{(\frac{-(f(z_i)-f(x_i))}{T_i})}>r$$
+
+If solution is worse (higher than for minimization), the $lhs$ will be between $0...1$, $r$ is a random integer between either $0$ or $1$. As the temperature cools off over time the $lhs$ will get converge to zero, which essentially reduces the probability of taking a worse candidate solution over time.
+
 ### Particle Swarm Optimization
 
 Particle Swarm Optimization is inspired by swarms of insects finding good spots. Good spots are evaluated as fitness of some function $f(x,y)$. The solution seeks the global optimum or an approximation hereof.
