@@ -28,6 +28,17 @@ An example using image data:
 
 ## Regression
 
+Is the procedure of fitting a model to describe some training data. The model can be used to make predictions given some input test data. The model predict some quantitative value for the input data.
+
+$$Y=M(X)$$
+
+Where $Y$ is the output vector, $M$ is the model and $X$ is the input vector.
+
 ## Classification
 
-### Multi-class Classification
+Is the procedure of fitting a decision function to discriminates classes in training data. The model can be used to make prediction, that classifies between qualitative classes.
+
+$$Y=C(X)$$
+
+Where $Y$ is the output label, $C$ is the classifier and $X$ is the input vector.
+
