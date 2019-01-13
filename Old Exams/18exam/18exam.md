@@ -4,11 +4,14 @@ Consider the following optimization problem:
 
 $$
 \begin{aligned}
-Maximize: f(x)=x_1 + x_2 \\
-Subject\: to: x_1+2x_2 \leq 12 \:(i)\\
-x_1+5x_2\leq25\:(ii)\\
-x_1 \leq 6\:(iii) \\
-and\: x_1 \leq 0;\: x_2 \leq 0
+& {\text{minimize}}
+& & f(x)=x_1 + x_2\\
+& \text{subject to}
+& & x_1+2x_2 \leq 12 & \text{(i)}\\
+& & & x_1+5x_2\leq25 & \text{(ii)}\\
+& & & x_1 \leq 6 & \text{(iii)}\\
+& \text{and} 
+& & x_1\geq0,x_2\geq 0
 \end{aligned}
 $$
 

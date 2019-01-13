@@ -4,10 +4,14 @@ Consider the following optimization problem:
 
 $$
 \begin{aligned}
-Maximize\:f(x)=6x_1+5x_2\\
-Subject\:to\:x_1+4x_4\leq16\\
-6x_1+4x_2\leq30\\2x_1-5x_2\leq6\\
-and\:x_1\geq0,x_2\geq 0
+& {\text{minimize}}
+& & f(x)=6x_1+5x_2\\
+& \text{subject to}
+& & x_1+4x_4\leq16 & \text{(i)}\\
+& & & 6x_1+4x_2\leq30 & \text{(ii)}\\
+& & & 2x_1-5x_2\leq6 & \text{(iii)}\\
+& \text{and} 
+& & x_1\geq0,x_2\geq 0
 \end{aligned}
 $$
 
@@ -103,7 +107,7 @@ a) Find the gradient of $f$ and the directional derivate in the direction $d(1,1
 
 The gradient of $f$ is $\nabla f$, which is a vector of the partial derivates of the variables.
 
-[Symbolab](https://www.symbolab.com/solver/partial-derivative-calculator) can give the partial derivatives.
+[Emath Help](https://www.emathhelp.net/calculators/calculus-3/gradient-calculator/?f=x*y-x&p=x%2Cy%3D1%2C2&steps=on) can solve first part i.e. the partial derivatives.
 
 $$\nabla f(x_1,x_2)=
     \begin{bmatrix}
@@ -116,7 +120,7 @@ $$\nabla f(x_1,x_2)=
     \end{bmatrix}
 $$
 
-$$\nabla f(x_1,x_2)_{(x,y)=(1,2)}=
+$$\nabla f(x_1,x_2)|_{(x,y)=(1,2)}=
     \begin{bmatrix}
     \frac{\partial f}{\partial x_1} \\
     \frac{\partial f}{\partial x_2}
