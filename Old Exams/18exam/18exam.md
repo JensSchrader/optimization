@@ -142,14 +142,26 @@ $$\nabla f(x_1,x_2,x_3)=
     \end{bmatrix}=
     \begin{bmatrix}
     1 \\
-    1 \\
-    1
+    -1 \\
+    -1
     \end{bmatrix}
 $$
 
 The directional derivate in the direction d, is the dot product of $d \cdot \nabla f$.
 
-$$d \cdot \nabla f = 2\cdot 1+3\cdot 1+4\cdot 1 = 9$$
+$$d \cdot \nabla f = 2\cdot 1+3\cdot -1+4\cdot -1 = -7$$
+
+On unit vector form;
+
+$$d\cdot \nabla f=\begin{bmatrix}
+    0.3714 \\
+    0.5571 \\
+    0.7428
+    \end{bmatrix}\cdot \begin{bmatrix}
+    1 \\
+    -1 \\
+    -1
+    \end{bmatrix}=0.9285$$
 
 Now let $f$ be subject to the constraint, $h(x_1,x_2,x_3)=0$, where $h(x)=\frac{x_1^2}{4}+\frac{x_2^2}{9}+\frac{x_3^2}{3}-1$.
 
