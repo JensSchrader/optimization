@@ -116,6 +116,21 @@ $$\nabla f(x_1,x_2)=
     \end{bmatrix}
 $$
 
+$$\nabla f(x_1,x_2)_{(x,y)=(1,2)}=
+    \begin{bmatrix}
+    \frac{\partial f}{\partial x_1} \\
+    \frac{\partial f}{\partial x_2}
+    \end{bmatrix}=
+    \begin{bmatrix}
+    2-1 \\
+    1 
+    \end{bmatrix}
+    = \begin{bmatrix}
+    1 \\
+    1 
+    \end{bmatrix}
+$$
+
 The directional derivate in the direction d, is the dot product of $d \cdot \nabla f$.
 
 $$d \cdot \nabla f(2,1) = 1 \cdot (2-1)+ 1\cdot 1 = 1$$
